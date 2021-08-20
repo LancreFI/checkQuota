@@ -29,7 +29,6 @@ PASS="${PWS[$num]}"
 
 curl -b "${COOKIEFILE}" -c "${COOKIEFILE}" -s 'https://webmail.elisa.fi/' -H 'User-Agent: QuotaKekker LancreFI' > "$TEMPFILE"
 TOKEN=$(grep "\"_token" "$TEMPFILE"|sed -e 's/^.*value="//' -e 's/">//')
-#rm "$TEMPFILE"
 
 curl -b "${COOKIEFILE}" -c "${COOKIEFILE}" -s -iL 'https://webmail.elisa.fi/?_task=login' \
   -H 'Connection: keep-alive' \
